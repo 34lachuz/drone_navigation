@@ -1,0 +1,29 @@
+services:
+  # Backend Node.js Telemetry & WebSocket API Server
+  - type: web
+    name: drone-navigation-backend
+    runtime: node
+    plan: free
+    region: singapore
+    buildCommand: cd server && npm install
+    startCommand: cd server && node src/server.js
+    envVars:
+      - key: PORT
+        value: 5000
+      - key: MONGODB_URI
+        sync: false
+      - key: CLIENT_ORIGIN
+        value: "*"
+
+  # Frontend React Vite GCS Dashboard
+  - type: web
+    name: drone-navigation-frontend
+    runtime: static
+    plan: free
+    region: singapore
+    buildCommand: cd client && npm install && npm run build
+    staticPublishPath: client/dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
