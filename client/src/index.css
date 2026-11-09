@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+:root {
+  /* Default: White & Dark Blue */
+  --app-bg: #081226;
+  --panel-bg: rgba(13, 27, 54, 0.94);
+  --card-bg: rgba(18, 38, 77, 0.88);
+  --border-color: rgba(56, 189, 248, 0.32);
+  --text-main: #ffffff;
+  --text-muted: #94a3b8;
+  --accent: #38bdf8;
+  --accent-glow: rgba(56, 189, 248, 0.5);
+  --accent-badge: #0284c7;
+  --highlight: #60a5fa;
+}
+
+html.theme-dark-blue {
+  --app-bg: #071120;
+  --panel-bg: rgba(12, 26, 52, 0.95);
+  --card-bg: rgba(17, 36, 72, 0.9);
+  --border-color: rgba(56, 189, 248, 0.35);
+  --text-main: #ffffff;
+  --text-muted: #cbd5e1;
+  --accent: #38bdf8;
+  --accent-glow: rgba(56, 189, 248, 0.5);
+  --accent-badge: #2563eb;
+  --highlight: #93c5fd;
+}
+
+html.theme-sandal-brown {
+  --app-bg: #150d09;
+  --panel-bg: rgba(33, 21, 15, 0.96);
+  --card-bg: rgba(46, 30, 21, 0.92);
+  --border-color: rgba(223, 194, 153, 0.4);
+  --text-main: #fdf8f0;
+  --text-muted: #d5c3b1;
+  --accent: #dfc299;
+  --accent-glow: rgba(223, 194, 153, 0.5);
+  --accent-badge: #a87948;
+  --highlight: #f5ebd9;
+}
+
+html.theme-emerald-green {
+  --app-bg: #04140d;
+  --panel-bg: rgba(8, 33, 21, 0.96);
+  --card-bg: rgba(13, 49, 32, 0.92);
+  --border-color: rgba(52, 211, 153, 0.38);
+  --text-main: #f0fdf4;
+  --text-muted: #a7f3d0;
+  --accent: #34d399;
+  --accent-glow: rgba(52, 211, 153, 0.5);
+  --accent-badge: #059669;
+  --highlight: #6ee7b7;
+}
+
+html.theme-cyber-cyan {
+  --app-bg: #070b14;
+  --panel-bg: rgba(14, 23, 38, 0.94);
+  --card-bg: rgba(19, 31, 54, 0.88);
+  --border-color: rgba(0, 229, 255, 0.3);
+  --text-main: #f1f5f9;
+  --text-muted: #94a3b8;
+  --accent: #00e5ff;
+  --accent-glow: rgba(0, 229, 255, 0.45);
+  --accent-badge: #0891b2;
+  --highlight: #67e8f9;
+}
+
+body {
+  background-color: var(--app-bg);
+  color: var(--text-main);
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dynamic theme classes */
+.theme-panel {
+  background-color: var(--panel-bg);
+  border-color: var(--border-color);
+  color: var(--text-main);
+}
+
+.theme-card {
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
+}
+
+.theme-border {
+  border-color: var(--border-color);
+}
+
+.theme-accent-text {
+  color: var(--accent);
+}
+
+.theme-accent-bg {
+  background-color: var(--accent);
+}
+
+.theme-muted-text {
+  color: var(--text-muted);
+}
+
+.theme-glow {
+  text-shadow: 0 0 12px var(--accent-glow);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--app-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.9); opacity: 0.8; }
+  50% { transform: scale(1.2); opacity: 0.2; }
+  100% { transform: scale(0.9); opacity: 0.8; }
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 2.5s infinite ease-in-out;
+}
